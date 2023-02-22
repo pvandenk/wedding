@@ -9,6 +9,8 @@ const Button = (props) => {
             disabled={props.disabled}
         >
             {props.label}
+            <div className="c-button__horizontal"></div>
+            <div className="c-button__vertical"></div>
         </button>
     );
 };

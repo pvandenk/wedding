@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import emailjs from "@emailjs/browser";
 import Input from './components/Input';
 import Checkbox from "./components/Checkbox";
 import Button from "./components/Button";
+import Select from "./components/Select";
 
 import "./App.css";
 import eventTypes from "./config/eventTypes";
@@ -9,7 +11,8 @@ import invitees from "./config/invitees";
 
 const steps = {
     default: "DEFAULT",
-    subscribe: "SUBSCRIBE"
+    subscribe: "SUBSCRIBE",
+    success: "SUCCESS"
 }
 
 function App() {
@@ -17,6 +20,17 @@ function App() {
     const [user, setUser] = useState({});
     const [withPartner, setWithPartner] = useState(false);
     const [joiningChildren, setJoiningChildren] = useState([]);
+
+    const joinChildren = (formData) => {
+        let children = [];
+        for (const data of formData) {
+            if (data.id.startsWith("child")) {
+                children.push(data.value);
+            }
+        }
+
+        return children.length > 0 ? children.join(", ") : "";
+    }
 
     const handleSubmitName = (e) => {
         e.preventDefault();
@@ -44,7 +58,24 @@ function App() {
     const handleSubscribe = (e) => {
         e.preventDefault();
 
-        console.log(e.target.elements);
+        const formData = e.target.elements;
+        const templateParams = {
+            name: formData.name.value,
+            partner: formData.partner ? formData.partner.value : "",
+            children: joinChildren(formData),
+            event: formData.event.value
+        }
+
+        console.log(formData);
+
+        // emailjs.send(
+        //     "service_hanzq3q",
+        //     "template_wks37p9",
+        //     templateParams,
+        //     "5AxzvzQz-HwQmwsd0"
+        // ).then(() => {
+        //     setStep(steps.success);
+        // })
     }
 
     useEffect(() => {
@@ -147,11 +178,44 @@ function App() {
                         }) : null
                     }
 
+                    {/*Event*/}
+                    {user.event === eventTypes.diner ?
+                        <Select
+                            id={"event"}
+                            label="Ik kom naar"
+                            options={[
+                                {
+                                    value: "Beide receptie & diner",
+                                    label: "Beide receptie & diner"
+                                },
+                                {
+                                    value: "Enkel receptie",
+                                    label: "Enkel receptie"
+                                },
+                                {
+                                    value: "Enkel diner & avondfeest",
+                                    label: "Enkel diner & avondfeest"
+                                }
+                            ]}
+                        />
+                        : null
+                    }
+
+                    {/*Comments*/}
+                    <textarea id={"comments"}/>
+
                     <Button
                         type="submit"
                         label={"Bevestigen"}
                     />
                 </form>
+                : null
+            }
+
+            {step === steps.success ?
+                <p>
+                    Bedankt om er bij te zijn!
+                </p>
                 : null
             }
         </div>
