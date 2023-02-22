@@ -8,14 +8,15 @@ html,
 body,
 #App {
 	--color-primary: #F0A266;
-	--color-primary-dark: #DF8148;
+	--color-primary-dark: #D37F44;
+	--color-secondary: #796B77;
 
 	font-size: 62.5%;
 	height: 100%;
 }
 
 body {
-	background-color: var(--color-primary);
+	background-color: #F9EEDF;
 	background-size: cover;
 }
 
@@ -27,13 +28,24 @@ select {
 }
 
 form {
+	font-size: 1.8rem;
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
+	background: rgba(255, 255, 255, 0.75);
+	padding: 75px;
+	max-height: 90%;
+	overflow-y: auto;
 }
 
 textarea {
 	resize: vertical;
+	min-height: 100px;
+}
+
+label {
+	font-weight: bold;
+	color: var(--color-secondary);
 }
 
 /*Utils*/
@@ -53,6 +65,7 @@ textarea {
 .l-container {
 	max-width: 660px;
 	margin: 0 auto;
+	padding: 0 20px;
 }
 
 /*Components*/
@@ -60,11 +73,48 @@ textarea {
 	width: auto;
 }
 
-.c-input input {
+.c-input,
+.c-select,
+.c-textarea {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	width: 100%;
+}
+
+.c-input input,
+.c-select select,
+.c-textarea textarea {
 	appearance: none;
-	border: 1px solid grey;
-	padding: 15px;
+	outline: none;
+	font-size: 1.8rem;
+	padding: 10px;
+	color: var(--color-secondary);
+	border: 2px solid currentColor;
+	background: transparent;
+	transition: 0.2s all ease-in-out;
+}
+
+.c-input input:not(:disabled):hover,
+.c-input input:focus,
+.c-select select:not(:disabled):hover,
+.c-select select:focus,
+.c-textarea textarea:not(:disabled):hover,
+.c-textarea textarea:focus {
+	color: var(--color-primary-dark);
+}
+
+.c-input input::placeholder,
+.c-input input::-webkit-input-placeholder,
+.c-textarea textarea::placeholder,
+.c-textarea textarea::-webkit-input-placeholder {
+	color: currentColor;
+	font-style: italic;
+}
+
+.c-input--large input {
 	font-size: 2.5rem;
+	padding: 15px;
 }
 
 .c-button {
@@ -85,7 +135,7 @@ textarea {
 	font-weight: bold;
 	border-radius: 0;
 	box-shadow: inset 0 0 0 var(--border-size) currentcolor;
-	transition: background .8s ease;
+	transition: all .8s ease;
 	margin: var(--offset);
 }
 
@@ -126,10 +176,10 @@ textarea {
 }
 
 .c-button__horizontal::before {
-	 top: calc(var(--vertical-offset) - var(--border-size));
-	 bottom: calc(var(--vertical-offset) - var(--border-size));
-	 left: calc(var(--vertical-offset) * -1);
-	 right: calc(var(--vertical-offset) * -1);
+	top: calc(var(--vertical-offset) - var(--border-size));
+	bottom: calc(var(--vertical-offset) - var(--border-size));
+	left: calc(var(--vertical-offset) * -1);
+	right: calc(var(--vertical-offset) * -1);
 }
 
 .c-button__vertical {
@@ -143,4 +193,23 @@ textarea {
 	bottom: calc(var(--horizontal-offset) * -1);
 	left: calc(var(--horizontal-offset) - var(--border-size));
 	right: calc(var(--horizontal-offset) - var(--border-size));
+}
+
+.c-input:not(.c-input--large) + .c-button {
+	margin: 0;
+	font-size: 1.8rem;
+	padding: 10px;
+	box-shadow: none;
+	border: 2px solid var(--color-secondary);
+	background-color: var(--color-secondary);
+	border-left: 0;
+}
+
+.c-input:not(.c-input--large) + .c-button:hover {
+	opacity: 0.75;
+}
+
+.c-input:not(.c-input--large) + .c-button .c-button__vertical,
+.c-input:not(.c-input--large) + .c-button .c-button__horizontal {
+	display: none;
 }

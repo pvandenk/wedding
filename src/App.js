@@ -8,6 +8,7 @@ import Select from "./components/Select";
 import "./App.css";
 import eventTypes from "./config/eventTypes";
 import invitees from "./config/invitees";
+import Textarea from "./components/Textarea";
 
 const steps = {
     default: "DEFAULT",
@@ -68,14 +69,14 @@ function App() {
 
         console.log(formData);
 
-        // emailjs.send(
-        //     "service_hanzq3q",
-        //     "template_wks37p9",
-        //     templateParams,
-        //     "5AxzvzQz-HwQmwsd0"
-        // ).then(() => {
-        //     setStep(steps.success);
-        // })
+        emailjs.send(
+            "service_hanzq3q",
+            "template_wks37p9",
+            templateParams,
+            "5AxzvzQz-HwQmwsd0"
+        ).then(() => {
+            setStep(steps.success);
+        })
     }
 
     useEffect(() => {
@@ -95,6 +96,7 @@ function App() {
             {step === steps.default ?
                 <form onSubmit={handleSubmitName}>
                     <Input
+                        classes={"c-input--large"}
                         id={"name"}
                         type="text"
                         placeholder={"Naam"}
@@ -151,31 +153,35 @@ function App() {
                     }
 
                     {joiningChildren.length > 0 ?
-                        joiningChildren.map((child) => {
-                            return (
-                                <React.Fragment>
-                                    <div className="u-flex">
-                                        <Input
-                                            key={child.id}
-                                            id={`child${child.id}`}
-                                            type="text"
-                                            defaultValue={child.name}
-                                        />
-                                        <Button
-                                            type="button"
-                                            label={"X"}
-                                            onClick={() => {
-                                                setJoiningChildren(
-                                                    joiningChildren.filter(c =>
-                                                        c.id !== child.id
-                                                    )
-                                                );
-                                            }}
-                                        />
-                                    </div>
-                                </React.Fragment>
-                            )
-                        }) : null
+                        <div className={"u-flex"} style={{gap: "2rem"}}>
+                            {
+                                joiningChildren.map((child) => {
+                                    return (
+                                        <React.Fragment>
+                                            <div className="u-flex">
+                                                <Input
+                                                    key={child.id}
+                                                    id={`child${child.id}`}
+                                                    type="text"
+                                                    defaultValue={child.name}
+                                                    disabled={true}
+                                                />
+                                                <Button
+                                                    type="button"
+                                                    label={"X"}
+                                                    onClick={() => {
+                                                        setJoiningChildren(
+                                                            joiningChildren.filter(c =>
+                                                                c.id !== child.id
+                                                            )
+                                                        );
+                                                    }}
+                                                />
+                                            </div>
+                                        </React.Fragment>
+                                    )
+                            })}
+                        </div> : null
                     }
 
                     {/*Event*/}
@@ -202,7 +208,11 @@ function App() {
                     }
 
                     {/*Comments*/}
-                    <textarea id={"comments"}/>
+                    <Textarea
+                        id={"comments"}
+                        label={"Extra opmerkingen"}
+                        placeholder={"vegetarisch, lactose-intolerantie, vragen, ..."}
+                    />
 
                     <Button
                         type="submit"

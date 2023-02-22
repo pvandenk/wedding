@@ -1,16 +1,15 @@
 import React from 'react';
 
-const Input = (props) => {
+const Textarea = (props) => {
     return (
-        <div className={`c-input ${props.classes}`}>
+        <div className={`c-textarea ${props.classes}`}>
             {props.label ?
                 <label htmlFor={props.id}>
                     {props.label}
                 </label> : null
             }
-            <input
+            <textarea
                 id={props.id}
-                type={props.type}
                 value={props.value}
                 defaultValue={props.defaultValue}
                 placeholder={props.placeholder}
@@ -23,4 +22,4 @@ const Input = (props) => {
     );
 };
 
-export default Input;
+export default Textarea;
