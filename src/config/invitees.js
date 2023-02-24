@@ -3,31 +3,48 @@ import eventTypes from "./eventTypes";
 const invitees = [
     {
         event: eventTypes.diner,
-        name: "Peter VandenKerckhove",
-        partner: "Xandrien Verthe",
+        name: "Dirk Verthe",
+        partner: "Inge Roelstraete",
+    },
+    {
+        event: eventTypes.diner,
+        name: "Guido VandenKerckhove",
+        partner: "Greta Delbaere",
+    },
+    {
+        event: eventTypes.diner,
+        name: "Petra VandenKerckhove",
         children: [
             {
                 id: 1,
-                name: "Jef",
+                name: "Maura",
+            },
+        ]
+    },
+    {
+        event: eventTypes.diner,
+        name: "Ellen VandenKerckhove",
+        partner: "Cedric Dekeyster",
+    },
+    {
+        event: eventTypes.diner,
+        name: "Tom Pype",
+        partner: "Amy Tanghe",
+        children: [
+            {
+                id: 1,
+                name: "Lotte",
             },
             {
                 id: 2,
-                name: "Jos",
+                name: "Ferre",
             },
-            {
-                id: 3,
-                name: "Marie",
-            }
         ]
     },
     {
         event: eventTypes.reception,
-        name: "Single",
+        name: "Jari Goemaere",
     },
-    {
-        event: eventTypes.diner,
-        name: "Diner",
-    }
 ]
 
 export default invitees;
