@@ -1,0 +1,30 @@
+// =============================================================================
+// Page
+// =============================================================================
+
+// Html level setup
+html {
+	// Ensure the page always fills up the entire height of the viewport
+	min-height: 100%;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	/**
+	 * We set the font-size on the HTML tag to 62.5% to equalize 1rem to 10px
+	 * instead of 1rem to 16px.
+	 */
+	font-size: 62.5%;
+}
+
+// Body level setup
+body {
+	// Disable horizontal scrollbars when content is larger than viewport
+	max-width: 100%;
+
+	// Set behaviour when scrolling by navigatio or scrolling API's
+	scroll-behavior: smooth;
+
+	// Browser focus on rendering speed over legibility and geometric precision.
+	text-rendering: optimizeSpeed;
+}

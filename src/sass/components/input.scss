@@ -1,0 +1,62 @@
+.c-input {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	width: 100%;
+
+	input {
+		appearance: none;
+		outline: none;
+		font-size: 1.8rem;
+		padding: 10px;
+		color: var(--color-secondary);
+		border: 2px solid currentColor;
+		background: transparent;
+		transition: 0.2s all ease-in-out;
+
+		&:disabled {
+			background-color: rgba(121, 107, 119, 0.05);
+		}
+
+		&:not(:disabled):hover,
+		&:focus {
+			color: var(--color-primary-dark);
+		}
+
+		&::placeholder,
+		&::-webkit-input-placeholder {
+			color: currentColor;
+			font-style: italic;
+		}
+	}
+
+	&:not(.c-input--large) {
+
+		+ .c-button {
+			margin: 0;
+			font-size: 1.8rem;
+			padding: 10px;
+			box-shadow: none;
+			border: 2px solid var(--color-secondary);
+			background-color: var(--color-secondary);
+			border-left: 0;
+
+			&:hover {
+				opacity: 0.75;
+			}
+
+			.c-button__vertical,
+			.c-button__horizontal {
+				display: none;
+			}
+		}
+	}
+}
+
+.c-input--large {
+
+	input {
+		font-size: 2.5rem;
+		padding: 15px;
+	}
+}

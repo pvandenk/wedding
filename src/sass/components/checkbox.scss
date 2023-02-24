@@ -1,0 +1,64 @@
+@use "sass:math";
+
+$border-size: 0.2rem;
+$size: 2rem;
+$inner-size: 1.2rem;
+
+.c-checkbox {
+	display: inline-flex;
+	align-items: center;
+
+	label {
+		position: relative;
+		padding-left: 2.5rem;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			display: inline-flex;
+			transition: 0.2s all ease-in-out;
+		}
+
+		&::before {
+			width: $size;
+			height: $size;
+			border: $border-size solid var(--color-primary);
+		}
+
+		&::after {
+			opacity: 0;
+			left: math.div($size - $inner-size, 2);
+			top: math.div($size - $inner-size, 2);
+			width: $inner-size;
+			height: $inner-size;
+			background-color: var(--color-primary);
+		}
+
+		&:hover {
+
+			&::before {
+				border-color: var(--color-primary-dark);
+			}
+
+			&::after {
+				background-color: var(--color-primary-dark);
+			}
+		}
+	}
+
+	input {
+		display: none;
+
+		&:checked {
+
+			+ label {
+
+				&::after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

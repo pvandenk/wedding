@@ -1,4 +1,5 @@
 import React from 'react';
+import "../sass/components/select.scss";
 
 const Select = (props) => {
     return (

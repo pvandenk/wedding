@@ -1,0 +1,22 @@
+.c-select {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	width: 100%;
+
+	select {
+		appearance: none;
+		outline: none;
+		font-size: 1.8rem;
+		padding: 10px;
+		color: var(--color-secondary);
+		border: 2px solid currentColor;
+		background: transparent;
+		transition: 0.2s all ease-in-out;
+
+		&:not(:disabled):hover,
+		&:focus {
+			color: var(--color-primary-dark);
+		}
+	}
+}

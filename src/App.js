@@ -5,7 +5,7 @@ import Checkbox from "./components/Checkbox";
 import Button from "./components/Button";
 import Select from "./components/Select";
 
-import "./App.css";
+import "./App.scss";
 import eventTypes from "./config/eventTypes";
 import invitees from "./config/invitees";
 import Textarea from "./components/Textarea";
@@ -64,10 +64,9 @@ function App() {
             name: formData.name.value,
             partner: formData.partner ? formData.partner.value : "",
             children: joinChildren(formData),
-            event: formData.event.value
+            event: formData.event.value.toLowerCase(),
+            comments: formData.comments.value
         }
-
-        console.log(formData);
 
         emailjs.send(
             "service_hanzq3q",
@@ -122,6 +121,7 @@ function App() {
                     {/*Partner*/}
                     {user.event === eventTypes.diner ?
                         <Checkbox
+                            id={"withPartner"}
                             label={user.partner ? "Partner komt mee" : "Ik kom met een +1!"}
                             checked={withPartner}
                             onChange={() => setWithPartner(!withPartner)}
@@ -140,6 +140,7 @@ function App() {
                     {/*Children*/}
                     {user.children ?
                         <Checkbox
+                            id={"withChildren"}
                             label={"Kinderen komen mee"}
                             checked={joiningChildren.length > 0}
                             onChange={() => {
@@ -223,7 +224,7 @@ function App() {
             }
 
             {step === steps.success ?
-                <p>
+                <p className={"paragraph paragraph--thanks"}>
                     Bedankt om er bij te zijn!
                 </p>
                 : null

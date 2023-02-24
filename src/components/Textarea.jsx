@@ -1,4 +1,5 @@
 import React from 'react';
+import "../sass/components/textarea.scss";
 
 const Textarea = (props) => {
     return (
@@ -15,7 +16,7 @@ const Textarea = (props) => {
                 placeholder={props.placeholder}
                 onChange={props.onChange}
                 disabled={props.disabled}
-                required={props.required ? props.required : true}
+                required={props.required ? props.required : false}
                 autoComplete={"off"}
             />
         </div>

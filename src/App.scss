@@ -1,0 +1,16 @@
+/* VENDORS */
+@use "../node_modules/normalize.css/normalize.css";
+
+/* SETTINGS */
+@use "./sass/theme/colors";
+
+/* GLOBAL */
+@use "./sass/core";
+@use "./sass/base";
+@use "./sass/utils";
+
+/* LAYOUTS */
+@use "./sass/layouts";
+
+/* COMPONENTS */
+@use "./sass/components/paragraph";

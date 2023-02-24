@@ -1,4 +1,5 @@
 import React from 'react';
+import "../sass/components/checkbox.scss";
 
 function Checkbox(props) {
     function handleChange() {
@@ -8,10 +9,12 @@ function Checkbox(props) {
     }
 
     return (
-        <label className={"c-checkbox"}>
-            <input type="checkbox" checked={props.checked} onChange={handleChange}/>
-            {props.label}
-        </label>
+        <div className={"c-checkbox"}>
+            <input id={props.id} type="checkbox" checked={props.checked} onChange={handleChange}/>
+            <label htmlFor={props.id}>
+                {props.label}
+            </label>
+        </div>
     );
 }
 
