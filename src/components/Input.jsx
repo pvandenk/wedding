@@ -20,6 +20,17 @@ const Input = (props) => {
                 required={props.required ? props.required : true}
                 autoComplete={"off"}
             />
+            {props.errors?.length > 0 ?
+                <ul>
+                    {props.errors.map((error, index) => {
+                        return (
+                            <li className={"c-input__error"} key={index}>
+                                {error}
+                            </li>
+                        )
+                    })}
+                </ul> : null
+            }
         </div>
     );
 };

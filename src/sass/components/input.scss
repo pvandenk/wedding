@@ -51,6 +51,19 @@
 			}
 		}
 	}
+
+	ul {
+		padding: 0;
+		margin: 0;
+	}
+}
+
+.c-input__error {
+	font-size: 1.4rem;
+	font-weight: bold;
+	list-style: none;
+	padding: 0.5rem 0;
+	color: var(--color-error);
 }
 
 .c-input--large {
@@ -58,5 +71,9 @@
 	input {
 		font-size: 2.5rem;
 		padding: 15px;
+	}
+
+	.c-input__error {
+		font-size: 1.6rem;
 	}
 }

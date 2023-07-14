@@ -9,7 +9,7 @@ const Select = (props) => {
                     {props.label}
                 </label> : null
             }
-            <select id={props.id} onChange={props.onChange}>
+            <select id={props.id} onChange={props.onChange} defaultValue={props.selected}>
                 {props.options.map((option, index) => (
                     <option key={index} value={option.value}>
                         {option.label}

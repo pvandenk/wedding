@@ -16,11 +16,22 @@ const steps = {
     success: "SUCCESS"
 }
 
+const states = {
+    loaded: "LOADED",
+    loading: "LOADING",
+}
+
 function App() {
     const [step, setStep] = useState(steps.default);
+    const [state, setState] = useState(states.loaded);
     const [user, setUser] = useState({});
     const [withPartner, setWithPartner] = useState(false);
     const [joiningChildren, setJoiningChildren] = useState([]);
+    const [errors, setErrors] = useState({});
+    const errorMessages = {
+        fullName: "Volledige naam invullen (voor + familienaam)",
+        notFound: "Naam niet gevonden in lijst"
+    }
 
     const joinChildren = (formData) => {
         let children = [];
@@ -38,33 +49,71 @@ function App() {
 
         const userName = e.target.name.value;
 
-        invitees.forEach(function (invitee) {
-            const isValidPartner = invitee.hasOwnProperty("partner") && invitee.partner.toUpperCase() === userName.toUpperCase();
-            if (invitee.name.toUpperCase() === userName.toUpperCase() || isValidPartner) {
-                if (isValidPartner) {
-                    setUser({
-                        ...invitee,
-                        name: invitee.partner,
-                        partner: invitee.name
-                    });
-                } else {
-                    setUser(invitee);
-                }
-
-                setStep(steps.subscribe);
+        if (userName.indexOf(" ") < 0) {
+            setErrors({
+                name: [
+                    errorMessages.fullName
+                ]
+            })
+        } else {
+            if (errors.name?.length > 0) {
+                setErrors({});
             }
-        });
+
+            for (let index = 0; index < invitees.length; index++) {
+                const invitee = invitees[index];
+                const isValidPartner = invitee.hasOwnProperty("partner") && invitee.partner.toUpperCase() === userName.toUpperCase();
+                if (invitee.name.toUpperCase() === userName.toUpperCase() || isValidPartner) {
+                    if (isValidPartner) {
+                        setUser({
+                            ...invitee,
+                            name: invitee.partner,
+                            partner: invitee.name
+                        });
+                    } else {
+                        setUser(invitee);
+                    }
+
+                    if (errors.name?.length > 0) {
+                        setErrors({});
+                    }
+                    setStep(steps.subscribe);
+
+                    break;
+                } else {
+                    if (index === invitees.length -1) {
+                        setErrors({
+                            name: [
+                                errorMessages.notFound
+                            ]
+                        })
+                    }
+                }
+            }
+        }
     }
 
     const handleSubscribe = (e) => {
         e.preventDefault();
-
+        setState(states.loading);
         const formData = e.target.elements;
+
+        if (formData.partner?.value.indexOf(" ") < 0) {
+            setErrors({
+                partner: [
+                    errorMessages.fullName
+                ]
+            })
+
+            setState(states.loaded);
+            return;
+        }
+
         const templateParams = {
             name: formData.name.value,
             partner: formData.partner ? formData.partner.value : "",
             children: joinChildren(formData),
-            event: formData.event.value.toLowerCase(),
+            event: eventTypes[formData.event.value],
             comments: formData.comments.value
         }
 
@@ -75,11 +124,12 @@ function App() {
             "5AxzvzQz-HwQmwsd0"
         ).then(() => {
             setStep(steps.success);
+            setState(states.loaded);
         })
     }
 
     useEffect(() => {
-        if (user.partner || (user.event === eventTypes.diner)) {
+        if (user.partner || (user.event === eventTypes.all)) {
             setWithPartner(true);
         }
     }, [user.partner, user.event])
@@ -99,6 +149,7 @@ function App() {
                         id={"name"}
                         type="text"
                         placeholder={"Naam"}
+                        errors={errors.name}
                     />
                     <Button
                         type="submit"
@@ -119,7 +170,7 @@ function App() {
                     />
 
                     {/*Partner*/}
-                    {user.event === eventTypes.diner ?
+                    {user.event === eventTypes.all ?
                         <Checkbox
                             id={"withPartner"}
                             label={user.partner ? "Partner komt mee" : "Ik kom met een +1!"}
@@ -134,6 +185,7 @@ function App() {
                             label={"Partner"}
                             type="text"
                             defaultValue={user.partner}
+                            errors={errors.partner}
                         /> : null
                     }
 
@@ -159,10 +211,9 @@ function App() {
                                 joiningChildren.map((child) => {
                                     return (
                                         <React.Fragment>
-                                            <div className="u-flex">
+                                            <div className="u-flex" key={child.name.toLowerCase()}>
                                                 <Input
-                                                    key={child.id}
-                                                    id={`child${child.id}`}
+                                                    id={`child_${child.name.toLowerCase()}`}
                                                     type="text"
                                                     defaultValue={child.name}
                                                     disabled={true}
@@ -173,7 +224,7 @@ function App() {
                                                     onClick={() => {
                                                         setJoiningChildren(
                                                             joiningChildren.filter(c =>
-                                                                c.id !== child.id
+                                                                c.name !== child.name
                                                             )
                                                         );
                                                     }}
@@ -186,24 +237,17 @@ function App() {
                     }
 
                     {/*Event*/}
-                    {user.event === eventTypes.diner ?
+                    {user.event === eventTypes.all ?
                         <Select
                             id={"event"}
                             label="Ik kom naar"
-                            options={[
-                                {
-                                    value: "Beide receptie & diner",
-                                    label: "Beide receptie & diner"
-                                },
-                                {
-                                    value: "Enkel receptie",
-                                    label: "Enkel receptie"
-                                },
-                                {
-                                    value: "Enkel diner & avondfeest",
-                                    label: "Enkel diner & avondfeest"
+                            selected={"all"}
+                            options={Object.keys(eventTypes).map((eventKey) => {
+                                return {
+                                    value: eventKey,
+                                    label: eventTypes[eventKey],
                                 }
-                            ]}
+                            })}
                         />
                         : null
                     }
@@ -216,6 +260,7 @@ function App() {
                     />
 
                     <Button
+                        loading={state === states.loading}
                         type="submit"
                         label={"Bevestigen"}
                     />
@@ -225,7 +270,8 @@ function App() {
 
             {step === steps.success ?
                 <p className={"paragraph paragraph--thanks"}>
-                    Bedankt om er bij te zijn!
+                    Bedankt om er bij te zijn!<br/>
+                    <i>27/04/2024</i>
                 </p>
                 : null
             }
