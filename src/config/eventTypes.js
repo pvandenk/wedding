@@ -1,7 +1,7 @@
 const eventTypes = {
     reception: "Receptie",
-    all: "Receptie, diner & avondfeest",
-    party: "Avondfeest"
+    diner: "Diner & avondfeest",
+    all: "Receptie, diner & avondfeest"
 }
 
 export default eventTypes;

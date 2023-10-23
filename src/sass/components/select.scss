@@ -3,6 +3,10 @@
 	flex-direction: column;
 	gap: 0.5rem;
 	width: 100%;
+}
+
+.c-select__input {
+	position: relative;
 
 	select {
 		appearance: none;
@@ -11,12 +15,34 @@
 		padding: 10px;
 		color: var(--color-secondary);
 		border: 2px solid currentColor;
-		background: transparent;
+		background-color: transparent;
+		background-repeat: no-repeat;
 		transition: 0.2s all ease-in-out;
 
 		&:not(:disabled):hover,
 		&:focus {
 			color: var(--color-primary-dark);
+
+			+ .c-select__arrow {
+				color: var(--color-primary-dark);
+			}
 		}
+	}
+}
+
+.c-select__arrow {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	width: 20px;
+	color: var(--color-secondary);
+	pointer-events: none;
+	transition: 0.2s all ease-in-out;
+
+	svg {
+		fill: currentColor;
 	}
 }
