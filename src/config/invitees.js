@@ -9,6 +9,131 @@ const familyXandrien = [
     {
         event: eventTypes.all,
         name: "Lise Verthe",
+        partner: "Thomas Nys"
+    },
+    {
+        event: eventTypes.all,
+        name: "Kaat Roelstraete",
+        partner: "Frank Laverge",
+    },
+    {
+        event: eventTypes.all,
+        name: "Ria Roelstraete",
+        partner: "Bart De Leeuw"
+    },
+    {
+        event: eventTypes.all,
+        name: "Geert Roelstraete",
+        partner: "Marilene José"
+    },
+    {
+        event: eventTypes.all,
+        name: "Christine Verthé",
+        partner: "Johan Decoutere"
+    },
+    {
+        event: eventTypes.all,
+        name: "Frank Verthé",
+        partner: "Aimee Vandevoordt"
+    },
+    {
+        event: eventTypes.all,
+        name: "Marc Reynaert",
+        partner: "Ann Roelstraete"
+    },
+    {
+        event: eventTypes.all,
+        name: "Karel De Leeuw",
+        partner: "Lieve Vandevelde",
+        children: [
+            {
+                name: "Vic",
+            },
+            {
+                name: "Mila"
+            }
+        ]
+    },
+    {
+        event: eventTypes.all,
+        name: "Pieter-Jan De Leeuw",
+        partner: "Ann Baert",
+        children: [
+            {
+                name: "Lucas",
+            },
+            {
+                name: "Thomas"
+            }
+        ]
+    },
+    {
+        event: eventTypes.all,
+        name: "Rien Laverge",
+        partner: "Line Vyvey",
+        children: [
+            {
+                name: "Lotte",
+            },
+            {
+                name: "Julie"
+            }
+        ]
+    },
+    {
+        event: eventTypes.all,
+        name: "Jelle Laverge",
+        partner: "Sarah Vergote",
+        children: [
+            {
+                name: "Amber",
+            },
+            {
+                name: "Daan"
+            }
+        ]
+    },
+    {
+        event: eventTypes.all,
+        name: "Wim Roelstraete",
+        partner: "Mariana"
+    },
+    {
+        event: eventTypes.all,
+        name: "Emmy Roelstraete",
+        partner: "Brian Verbeeck",
+        children: [
+            {
+                name: "Guillaume",
+            },
+            {
+                name: "Casper"
+            }
+        ]
+    },
+    {
+        event: eventTypes.all,
+        name: "Jan Verthé",
+        partner: "Sanne Croughs"
+        // TODO: children
+    },
+    {
+        event: eventTypes.all,
+        name: "Ben Verthé",
+        partner: "Sylvie Fabiano"
+        // TODO: children
+    },
+    {
+        event: eventTypes.all,
+        name: "Tom Verthé",
+        partner: "Luana Russo"
+        // TODO: children
+    },
+    {
+        event: eventTypes.all,
+        name: "Maaike Decoutere",
+        partner: "Davy",
+        // TODO: children
     },
 ];
 
@@ -65,6 +190,149 @@ const colleaguesXandrien = [
         event: eventTypes.all,
         name: "Victor Ducatelle",
         partner: "Lobbe Denijs"
+    },
+    {
+        event: eventTypes.all,
+        name: "Kimberley Dumon",
+        partner: "Bert Cardoen"
+    },
+    {
+        event: eventTypes.all,
+        name: "Hannelore Degrendel",
+    },
+    {
+        event: eventTypes.all,
+        name: "Yves Durnez",
+        partner: "Katrien Dewitte"
+    },
+    {
+        event: eventTypes.all,
+        name: "Isabelle Bruneel",
+        partner: "Didier Decrock"
+    },
+    {
+        event: eventTypes.all,
+        name: "Eline Van Houtte",
+        partner: "Mathieu Staelens"
+    },
+    {
+        event: eventTypes.all,
+        name: "Mieke Desseyn",
+        partner: "Mohamed Demdoum"
+    },
+    {
+        event: eventTypes.all,
+        name: "Peggy Vanoverschelde",
+    },
+    {
+        event: eventTypes.all,
+        name: "Hannelore Defour",
+        partner: "Geert Janssens"
+    },
+    {
+        event: eventTypes.all,
+        name: "Karen Vanderhaeghe",
+        partner: "Bjorn Verbeest"
+    },
+    {
+        event: eventTypes.all,
+        name: "Ann Dewitte",
+        partner: "Nico Himpe"
+    },
+    {
+        event: eventTypes.all,
+        name: "Lien De Coster",
+        partner: "Tom Seyns"
+    },
+    {
+        event: eventTypes.all,
+        name: "Annelies Lust",
+        partner: "Anthony Luhning"
+    },
+    {
+        event: eventTypes.all,
+        name: "Riet Vanraes",
+        partner: "Bart Demunck"
+    },
+    {
+        event: eventTypes.all,
+        name: "Inge Vanwynsberghe",
+        partner: "Koen Vanneste"
+    },
+    {
+        event: eventTypes.all,
+        name: "Katrien Noyens",
+        partner: "Pieter Becquart"
+    },
+    {
+        event: eventTypes.all,
+        name: "Manon Noyez",
+        partner: "Pavel Dessein"
+    },
+    {
+        event: eventTypes.all,
+        name: "Silke De Pré",
+        partner: "Tom Clauw"
+    },
+    {
+        event: eventTypes.all,
+        name: "Mario Decrock",
+        partner: "Hanne Vercruysse"
+    },
+    {
+        event: eventTypes.all,
+        name: "Joyce Jacques",
+        partner: "Robbe Werniers"
+    },
+    {
+        event: eventTypes.reception,
+        name: "Mieke De Koning",
+    },
+    {
+        event: eventTypes.reception,
+        name: "Ulrike Decuypere",
+    },
+    {
+        event: eventTypes.reception,
+        name: "Corinne Depraetere",
+    },
+    {
+        event: eventTypes.reception,
+        name: "Annelies Rosseel",
+    },
+    {
+        event: eventTypes.reception,
+        name: "Sien Accou",
+    },
+    {
+        event: eventTypes.reception,
+        name: "Sabine Dupont",
+    },
+    {
+        // TODO: last name
+        event: eventTypes.reception,
+        name: "Leen",
+    },
+    {
+        event: eventTypes.reception,
+        name: "Leentje Dervaux",
+    },
+    {
+        // TODO: last name
+        event: eventTypes.reception,
+        name: "Fabienne",
+    },
+    {
+        event: eventTypes.reception,
+        name: "Sofie Schoonbaert",
+    },
+    {
+        event: eventTypes.reception,
+        name: "Jill Nichelson",
+    },
+    {
+        event: eventTypes.reception,
+        name: "Heidi Declercq",
     },
 ];
 
@@ -124,6 +392,11 @@ const friends = [
     },
     {
         event: eventTypes.all,
+        name: "Kelly Louagie",
+        partner: "Linda Goethals"
+    },
+    {
+        event: eventTypes.all,
         name: "Nikita Wyllemet",
         partner: "Thomas De Loof"
     },
@@ -143,7 +416,6 @@ const friends = [
     {
         event: eventTypes.all,
         name: "Melissa Byttebier",
-        partner: "Nordin Manhaeghe"
     },
     {
         event: eventTypes.all,
@@ -152,12 +424,21 @@ const friends = [
     },
     {
         event: eventTypes.all,
+        name: "Céline Vandevyvere",
+    },
+    {
+        event: eventTypes.all,
         name: "Bram Swyngedauw",
-        partner: "Tille Descheemaeker"
+    },
+    {
+        event: eventTypes.all,
+        name: "Jeroen Thibau",
+        partner: "Emily Roels"
     },
     {
         event: eventTypes.all,
         name: "Jana Ossieur",
+        partner: "Michiel Demeyere"
     },
     {
         event: eventTypes.all,
@@ -172,6 +453,17 @@ const friends = [
         event: eventTypes.all,
         name: "Geert Swyngedauw",
         partner: "Katrien Vandamme"
+    },
+    {
+        event: eventTypes.all,
+        name: "Niels De Witte",
+        partner: "Amber Destrijcker"
+    },
+    {
+        // TODO: last name
+        event: eventTypes.all,
+        name: "Marieke",
+        partner: "Brent"
     },
 ]
 
@@ -199,7 +491,7 @@ const invitees = [
     },
     {
         event: eventTypes.reception,
-        name: "Joeri",
+        name: "Yoeri Vemeersch",
     },
     {
         event: eventTypes.reception,
