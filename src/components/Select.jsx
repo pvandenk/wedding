@@ -10,7 +10,12 @@ const Select = (props) => {
                 </label> : null
             }
             <div className="c-select__input">
-                <select id={props.id} onChange={props.onChange} defaultValue={props.selected}>
+                <select
+                    id={props.id}
+                    onChange={props.onChange}
+                    defaultValue={props.selected}
+                    disabled={props.disabled}
+                >
                     {props.options.map((option, index) => (
                         <option key={index} value={option.value}>
                             {option.label}

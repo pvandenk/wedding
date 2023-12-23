@@ -216,7 +216,6 @@ function App() {
                                                     id={`child_${child.name.toLowerCase()}`}
                                                     type="text"
                                                     defaultValue={child.name}
-                                                    disabled={true}
                                                 />
                                                 <Button
                                                     type="button"
@@ -248,6 +247,16 @@ function App() {
                                     label: eventTypes[eventKey],
                                 }
                             })}
+                        />
+                        : null
+                    }
+
+                    {user.event === eventTypes.reception ?
+                        <Input
+                            id={"event"}
+                            label="Ik kom naar"
+                            defaultValue={eventTypes.reception}
+                            disabled={true}
                         />
                         : null
                     }

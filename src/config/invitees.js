@@ -114,26 +114,54 @@ const familyXandrien = [
     {
         event: eventTypes.all,
         name: "Jan Verthé",
-        partner: "Sanne Croughs"
-        // TODO: children
+        partner: "Sanne Croughs",
+        children: [
+            {
+                name: "Mien",
+            },
+            {
+                name: "Doet"
+            }
+        ]
     },
     {
         event: eventTypes.all,
         name: "Ben Verthé",
-        partner: "Sylvie Fabiano"
-        // TODO: children
+        partner: "Sylvie Fabiano",
+        children: [
+            {
+                name: "Daria",
+            },
+            {
+                name: "Marlo"
+            }
+        ]
     },
     {
         event: eventTypes.all,
         name: "Tom Verthé",
-        partner: "Luana Russo"
-        // TODO: children
+        partner: "Luana Russo",
+        children: [
+            {
+                name: "Vincent",
+            },
+            {
+                name: "Aurelie"
+            }
+        ]
     },
     {
         event: eventTypes.all,
         name: "Maaike Decoutere",
-        partner: "Davy",
-        // TODO: children
+        partner: "Davy Warnez",
+        children: [
+            {
+                name: "Abbygail",
+            },
+            {
+                name: "Ashley"
+            }
+        ]
     },
 ];
 
@@ -309,18 +337,16 @@ const colleaguesXandrien = [
         name: "Sabine Dupont",
     },
     {
-        // TODO: last name
         event: eventTypes.reception,
-        name: "Leen",
+        name: "Leen Desimpelaere",
     },
     {
         event: eventTypes.reception,
-        name: "Leentje Dervaux",
+        name: "Leen Dervaux",
     },
     {
-        // TODO: last name
         event: eventTypes.reception,
-        name: "Fabienne",
+        name: "Fabienne Depoortere",
     },
     {
         event: eventTypes.reception,
@@ -333,6 +359,22 @@ const colleaguesXandrien = [
     {
         event: eventTypes.reception,
         name: "Heidi Declercq",
+    },
+    {
+        event: eventTypes.reception,
+        name: "Lore Viaene",
+    },
+    {
+        event: eventTypes.reception,
+        name: "Wouter Lannoy",
+    },
+    {
+        event: eventTypes.reception,
+        name: "Ann Callewaert",
+    },
+    {
+        event: eventTypes.reception,
+        name: "Lisa Vercruysse",
     },
 ];
 
@@ -460,10 +502,9 @@ const friends = [
         partner: "Amber Destrijcker"
     },
     {
-        // TODO: last name
         event: eventTypes.all,
-        name: "Marieke",
-        partner: "Brent"
+        name: "Marieke Vanbelle",
+        partner: "Brent Modde"
     },
 ]
 
@@ -491,12 +532,16 @@ const invitees = [
     },
     {
         event: eventTypes.reception,
-        name: "Yoeri Vemeersch",
+        name: "Yoeri Vermeersch",
     },
     {
         event: eventTypes.reception,
         name: "Jan Taillieu",
         partner: "Nathalie Deleu"
+    },
+    {
+        event: eventTypes.reception,
+        name: "Myriam Dirix",
     },
 ]
 
