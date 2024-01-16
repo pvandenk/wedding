@@ -313,6 +313,10 @@ const colleaguesXandrien = [
         partner: "Robbe Werniers"
     },
     {
+        event: eventTypes.all,
+        name: "Laurence Mareel",
+    },
+    {
         event: eventTypes.reception,
         name: "Mieke De Koning",
     },
@@ -375,6 +379,10 @@ const colleaguesXandrien = [
     {
         event: eventTypes.reception,
         name: "Lisa Vercruysse",
+    },
+    {
+        event: eventTypes.reception,
+        name: "Bo Demey",
     },
 ];
 
@@ -542,6 +550,10 @@ const invitees = [
     {
         event: eventTypes.reception,
         name: "Myriam Dirix",
+    },
+    {
+        event: eventTypes.all,
+        name: "Koen Beys",
     },
 ]
 
