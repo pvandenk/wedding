@@ -382,7 +382,7 @@ const colleaguesXandrien = [
     },
     {
         event: eventTypes.reception,
-        name: "Bo Demey",
+        name: "Nele Waignein",
     },
 ];
 
