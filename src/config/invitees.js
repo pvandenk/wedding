@@ -96,7 +96,12 @@ const familyXandrien = [
     {
         event: eventTypes.all,
         name: "Wim Roelstraete",
-        partner: "Mariana"
+        partner: "Mariana",
+        children: [
+            {
+                name: "Owen",
+            },
+        ]
     },
     {
         event: eventTypes.all,

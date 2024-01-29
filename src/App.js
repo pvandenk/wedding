@@ -113,7 +113,7 @@ function App() {
             name: formData.name.value,
             partner: formData.partner ? formData.partner.value : "",
             children: joinChildren(formData),
-            event: eventTypes[formData.event.value],
+            event: eventTypes[formData.event.value] ?? formData.event.value,
             comments: formData.comments.value
         }
 
