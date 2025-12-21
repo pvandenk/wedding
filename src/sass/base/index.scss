@@ -1,64 +1,68 @@
 html,
 body,
 #App {
-	font-size: 62.5%;
-	height: 100%;
+  font-size: 62.5%;
+  height: 100%;
 }
 
 body {
-	font-family: 'Lato', sans-serif;
-	background-color: #F9EEDF;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+  font-family: 'Lato', sans-serif;
+  background-color: #F9EEDF;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  @media only screen and (orientation: portrait) {
+    background-size: cover;
+  }
 }
 
 form,
 input,
 textarea,
 select {
-	width: 100%;
+  width: 100%;
 }
 
 form {
-	font-size: 1.8rem;
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-	background: rgba(255, 255, 255, 0.75);
-	padding: 75px;
-	max-height: 90%;
-	overflow-y: auto;
+  font-size: 1.8rem;
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+  max-height: 90%;
+  padding: 75px;
+  background: rgba(255, 255, 255, 0.75);
+  gap: 2rem;
 
-	@media only screen and (max-width: 720px) {
-		padding: 50px 25px;
-	}
+  @media only screen and (max-width: 720px) {
+    padding: 50px 25px;
+  }
 
-	/* Scrollbar Styling */
-	// Firefox
-	scrollbar-color: rgba(255, 255, 255, 0.2) var(--color--primary);
-	scrollbar-width: thin;
+  /* Scrollbar Styling */
+  // Firefox
+  scrollbar-color: rgba(255, 255, 255, 0.2) var(--color--primary);
+  scrollbar-width: thin;
 
-	// Chrome/Safari/Edge
-	&::-webkit-scrollbar {
-		width: 5px;
-	}
+  // Chrome/Safari/Edge
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
 
-	&::-webkit-scrollbar-track {
-		background-color: transparent;
-	}
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
 
-	&::-webkit-scrollbar-thumb {
-		background-color: var(--color-secondary);
-	}
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-secondary);
+  }
 }
 
 textarea {
-	resize: vertical;
-	min-height: 100px;
+  min-height: 100px;
+  resize: vertical;
 }
 
 label {
-	font-weight: bold;
-	color: var(--color-secondary);
+  font-weight: bold;
+  color: var(--color-secondary);
 }
