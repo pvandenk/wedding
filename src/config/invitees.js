@@ -159,7 +159,7 @@ const dinerInvitees = [
     { event: eventTypes.all, name: "Marlies Lievens" },
     { event: eventTypes.all, name: "Fabien Francken" }
 ];
-//test
+
 const invitees = [
     ...receptionInvitees,
     ...dinerInvitees
