@@ -129,7 +129,7 @@ function App() {
     }
 
     useEffect(() => {
-        if (user.partner || (user.event === eventTypes.all)) {
+        if (user.partner) {
             setWithPartner(true);
         }
     }, [user.partner, user.event])
@@ -148,7 +148,7 @@ function App() {
                         classes={"c-input--large"}
                         id={"name"}
                         type="text"
-                        placeholder={"Naam"}
+                        placeholder={"Voornaam + naam"}
                         errors={errors.name}
                     />
                     <Button
@@ -170,10 +170,10 @@ function App() {
                     />
 
                     {/*Partner*/}
-                    {user.event === eventTypes.all ?
+                    {user.partner ?
                         <Checkbox
                             id={"withPartner"}
-                            label={user.partner ? "Partner komt mee" : "Ik kom met een +1!"}
+                            label={"Partner komt mee"}
                             checked={withPartner}
                             onChange={() => setWithPartner(!withPartner)}
                         /> : null
@@ -186,6 +186,7 @@ function App() {
                             type="text"
                             defaultValue={user.partner}
                             errors={errors.partner}
+                            disabled={true}
                         /> : null
                     }
 
