@@ -207,16 +207,17 @@ function App() {
                     }
 
                     {joiningChildren.length > 0 ?
-                        <div className={"u-flex"} style={{gap: "2rem"}}>
+                        <div className={"u-flex"} style={{gap: "2rem", flexDirection: "column"}}>
                             {
                                 joiningChildren.map((child) => {
                                     return (
                                         <React.Fragment>
-                                            <div className="u-flex" key={child.name.toLowerCase()}>
+                                            <div className="u-flex" key={child.name.toLowerCase().replace(' ', '_')}>
                                                 <Input
-                                                    id={`child_${child.name.toLowerCase()}`}
+                                                    id={`child_${child.name.toLowerCase().replace(' ', '_')}`}
                                                     type="text"
                                                     defaultValue={child.name}
+                                                    disabled={true}
                                                 />
                                                 <Button
                                                     type="button"
