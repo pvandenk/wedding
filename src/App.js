@@ -282,7 +282,7 @@ function App() {
             {step === steps.success ?
                 <p className={"paragraph paragraph--thanks"}>
                     Bedankt om er bij te zijn!<br/>
-                    <i>27/04/2024</i>
+                    <i>29/08/2026</i>
                 </p>
                 : null
             }
